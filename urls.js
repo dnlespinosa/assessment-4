@@ -9,10 +9,11 @@ async function getWeb(urlz) {
         let newUrl = response.config.url
         let shortUrl = newUrl.replace('http://', '')
         let shortUrl2 = shortUrl.replace('https://', '')
+        let finalUrl  = shortUrl2.split('/')[0]
 
 
 
-        fs.writeFile(`${__dirname}/${shortUrl}`, response.data, function (err) {
+        fs.writeFile(`${__dirname}/${finalUrl}`, response.data, function (err) {
             if (err) throw err;
 
             console.log('sucess')
